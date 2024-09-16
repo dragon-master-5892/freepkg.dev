@@ -3,17 +3,17 @@ GO=$(shell which go)
 
 
 all: build
-	$(ROOT)/fodcmd/fodcmd -domains=$(ROOT)/domains -foxyproxy=$(ROOT)/foxyproxy-patterns.json -pac=$(ROOT)/OmegaProfile.pac -proxifier=$(ROOT)/FOD.ppx
+	$(ROOT)/fodcmd/freepkg.dev -domains=$(ROOT)/domains -foxyproxy=$(ROOT)/foxyproxy-patterns.json -pac=$(ROOT)/OmegaProfile.pac -proxifier=$(ROOT)/FOD.ppx
 
 build:
 	cd $(ROOT)/fodcmd && $(GO) build .
 
 foxyproxy: build
-	$(ROOT)/fodcmd/fodcmd -domains=$(ROOT)/domains -foxyproxy=$(ROOT)/foxyproxy-patterns.json
+	$(ROOT)/fodcmd/freepkg.dev -domains=$(ROOT)/domains -foxyproxy=$(ROOT)/foxyproxy-patterns.json
 
 pac: build
-	$(ROOT)/fodcmd/fodcmd -domains=$(ROOT)/domains -pac=$(ROOT)/OmegaProfile.pac
+	$(ROOT)/fodcmd/freepkg.dev -domains=$(ROOT)/domains -pac=$(ROOT)/OmegaProfile.pac
 
 proxifier: build
-	$(ROOT)/fodcmd/fodcmd -domains=$(ROOT)/domains -proxifier=$(ROOT)/FOD.ppx
+	$(ROOT)/fodcmd/freepkg.dev -domains=$(ROOT)/domains -proxifier=$(ROOT)/FOD.ppx
 
